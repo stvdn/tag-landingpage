@@ -5,3 +5,5 @@ out/
 .env*
 !.env.example
 *.tgz
+.openai/
+/public/proyectos/.gitkeep
