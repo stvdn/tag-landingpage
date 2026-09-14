@@ -73,7 +73,7 @@ robots: { index: false, follow: false }
 
 Cambia esta política únicamente cuando el contenido sea real y quieras que los buscadores puedan indexarlo. Esta directiva no reemplaza el control de acceso privado del alojamiento.
 
-La configuración `.openai/hosting.json` declara `out/` como salida estática para Sites. Si utilizas otro proveedor, configura allí la misma carpeta de publicación.
+En Vercel, importa el repositorio como un proyecto de Next.js y conserva la configuración automática de compilación. Vercel publicará las páginas prerenderizadas y utilizará el optimizador de imágenes de Next.js.
 
 ## 6. Comprueba antes de compartir
 
@@ -94,4 +94,4 @@ npm run typecheck
 npm run build
 ```
 
-Después de una compilación correcta, publica de nuevo el contenido de `out/`.
+Después de una compilación correcta, envía los cambios al repositorio conectado con Vercel para iniciar una nueva publicación.
