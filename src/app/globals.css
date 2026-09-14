@@ -176,7 +176,10 @@ svg { display: block; width: 20px; height: 20px; flex: 0 0 auto; }
 .site-footer { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--color-line); color: #8f9baa; font-size: .75rem; }
 .site-footer > span { color: #fff; font-weight: 800; letter-spacing: .1em; }
 .site-footer a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; transition: color 180ms ease; }
+.site-credit { display: flex; align-items: center; gap: 4px; }
+.site-credit a { color: #fff; font-weight: 700; text-decoration: underline; text-decoration-color: #ffffff55; text-underline-offset: 4px; }
 .site-footer a:hover { color: var(--color-mint); }
+.site-footer a:focus-visible { border-radius: 2px; outline: 2px solid var(--color-mint); outline-offset: 3px; }
 .site-footer svg { width: 16px; height: 16px; }
 
 /* Motion */

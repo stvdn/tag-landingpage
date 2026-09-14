@@ -9,6 +9,15 @@ export default function Home() {
   return <>
     <MotionController />
     <main id="contenido"><Presentacion /><Proyectos /><Resenas /><Contacto /></main>
-    <footer className="shell site-footer" data-reveal><span>TAG/01</span><p>Sistemas de acceso para puertas</p><a href="#inicio">ARRIBA <ArrowUpIcon /></a></footer>
+    <footer className="shell site-footer" data-reveal>
+      <span>TAG/01</span>
+      <p className="site-credit">
+        Hecho por{" "}
+        <a href="https://devclab.vercel.app/" target="_blank" rel="noopener noreferrer">
+          dEvClab
+        </a>
+      </p>
+      <a href="#inicio">ARRIBA <ArrowUpIcon /></a>
+    </footer>
   </>;
 }
