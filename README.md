@@ -1,17 +1,63 @@
-# Portafolio de sistemas de acceso
+# Portafolio TAG/01
 
-Next.js + TypeScript. Página estática en español, sin CMS, base de datos ni panel administrativo.
+Un portafolio estático para presentar proyectos de control de acceso de forma clara y visual. Está construido con Next.js y TypeScript, sin CMS, base de datos ni panel administrativo.
 
-## Desarrollo y validación
+Este repositorio también funciona como ejemplo educativo: muestra cómo organizar una aplicación pequeña por funcionalidades sin añadir capas que todavía no necesita.
 
-Requiere Node.js 22 o posterior y npm.
+## Qué puedes aprender aquí
+
+- Cómo separar el contenido de los componentes visuales.
+- Cómo organizar el código según las funcionalidades que ve el usuario.
+- Cómo modelar contenido con TypeScript y validar su forma con `satisfies`.
+- Cómo diseñar estados alternativos cuando aún no existen fotos o datos de contacto.
+- Cómo generar un sitio estático con Next.js para publicarlo sin un servidor propio.
+- Cómo incorporar detalles básicos de accesibilidad, como texto alternativo, navegación por teclado y un enlace para saltar al contenido.
+
+Las pruebas automatizadas todavía no forman parte del ejemplo. Se añadirán como siguiente paso para enseñar cómo verificar componentes y contenido sin cambiar la estructura del proyecto.
+
+## Tecnologías
+
+- Next.js 16
+- React 19
+- TypeScript 6
+- CSS
+- ESLint
+
+## Ejecutar el proyecto
+
+Necesitas Node.js 22 o posterior y npm.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Abre la dirección que indique Next.js. Para validar y generar la versión publicable:
+Abre la dirección que muestre Next.js en la terminal.
+
+## Recorrido por el código
+
+```text
+src/
+├── app/                  # Página, metadatos y estilos globales
+├── features/
+│   ├── presentacion/     # Encabezado y presentación principal
+│   ├── proyectos/        # Casos, fotografías y modelo Proyecto
+│   ├── resenas/          # Testimonios
+│   └── contacto/         # Datos y acciones de contacto
+└── shared/ui/            # Componentes usados por varias funcionalidades
+```
+
+Un buen punto de partida es `src/app/page.tsx`: allí se componen las secciones de la página. Después, compara el archivo `content.ts` y la carpeta `components` de cualquier funcionalidad para ver cómo se mantienen separados los datos y su presentación.
+
+Las reglas de arquitectura y de contribución están documentadas en [`AGENTS.md`](./AGENTS.md).
+
+## Crear tu propia versión
+
+El contenido incluido es demostrativo. Antes de compartir el sitio como un portafolio real, debes sustituir la marca, los proyectos, las reseñas, el contacto, las imágenes y los metadatos.
+
+Sigue la guía [Personalizar el contenido](./docs/personalizar-contenido.md), que incluye las ubicaciones de cada dato y una lista de comprobación previa a la publicación.
+
+## Validar y compilar
 
 ```sh
 npm run lint
@@ -19,44 +65,14 @@ npm run typecheck
 npm run build
 ```
 
-La compilación genera `out/`. Se publica esa carpeta como sitio estático. No se necesita un servidor de Next.js en producción; las imágenes se sirven sin el optimizador de servidor. Optimiza las fotos a WebP antes de incorporarlas, idealmente hasta 1600 px de ancho. Las fuentes se cargan desde Google Fonts y tienen alternativas locales si no están disponibles.
+La compilación genera la carpeta `out/`. Esa carpeta contiene el sitio estático que se publica; no hace falta ejecutar un servidor de Next.js en producción.
 
-## Screaming architecture
+## Decisiones intencionales
 
-`src/features/presentacion`, `src/features/proyectos` y `src/features/contacto` expresan las funcionalidades del portafolio. Cada una es dueña de sus componentes y contenido; proyectos también define su modelo. `src/app` compone la página y define estilos globales y metadatos. `src/shared/ui` contiene únicamente componentes reutilizados por varias funcionalidades.
+- El contenido vive en archivos TypeScript para que el ejemplo sea fácil de leer y versionar.
+- Los componentes muestran estados útiles cuando faltan fotos o datos, en lugar de dejar espacios vacíos.
+- Las imágenes se sirven sin el optimizador de Next.js porque la salida es completamente estática.
+- La demostración no se indexa en buscadores hasta que el contenido real esté listo.
+- No se incluyen servicios, repositorios de datos ni un dashboard porque el alcance actual no los necesita.
 
-Dirección de dependencias: **app → features → shared**. Las funcionalidades no se importan entre sí y shared no importa app ni features. ESLint protege los límites con restricciones de importación. Dentro de una funcionalidad se usan imports relativos; entre capas, el alias `@/`. No se introducen capas de persistencia, servicios ni repositorios sin necesidad.
-
-## Cambiar contenido
-
-- Presentación: `src/features/presentacion/content.ts`.
-- Proyectos: `src/features/proyectos/content.ts`.
-- Contacto: `src/features/contacto/content.ts`.
-- Título y descripción para buscadores: `src/app/layout.tsx`.
-- Identidad del pie de página: `src/app/page.tsx`.
-
-La marca TAG / ACCESO y el caso inicial son demostrativos. Antes de presentar el portafolio a clientes, reemplaza los textos, incorpora material autorizado y marca `demostracion: false` tanto en presentación como en cada proyecto real. No publiques resultados sin comprobarlos.
-
-Para añadir un proyecto, duplica un objeto de `proyectos` con un `id` único, completa sus campos y agrega las fotografías. No es necesario editar componentes. Ejemplo de una entrada de `fotografias` (primero agrega tu archivo):
-
-```ts
-{
-  src: "/proyectos/lector-entrada.webp",
-  alt: "Lector de tags instalado junto a la puerta de entrada",
-  width: 1200,
-  height: 800,
-  pie: "Detalle del lector instalado"
-}
-```
-
-Los valores width y height deben coincidir con el archivo. Si no hay fotografías, no se muestran imágenes vacías. Si se elimina todo el listado de proyectos, se muestra un mensaje de próximos proyectos.
-
-## Contacto y publicación
-
-Reemplaza `null` en correo y/o teléfono con datos reales. Usa el número con prefijo internacional. Los enlaces de correo y llamada aparecen únicamente cuando existen datos; no hay formulario ni mensajes enviados por la web.
-
-Tras un cambio, ejecuta las tres validaciones, revisa el contenido y publica nuevamente `out/`. La configuración `.openai/hosting.json` vincula el proyecto con Sites y declara la salida estática. La primera publicación es privada. La demostración tiene `robots: { index: false, follow: false }`; cambia esa política únicamente cuando el contenido real esté listo y decidas publicarlo para buscadores. La directiva robots no sustituye el control de acceso privado del alojamiento.
-
-## Evolución a CMS
-
-Cuando el familiar necesite editar por su cuenta, reemplaza la fuente de datos de cada funcionalidad por una lectura desde el CMS. Conserva el modelo Proyecto y los componentes visuales; la integración deberá resolver la lectura de contenido y la reconstrucción del sitio al publicar. No hace falta crear un dashboard propio.
+Si más adelante una persona necesita editar el contenido sin tocar código, los archivos `content.ts` pueden sustituirse por lecturas desde un CMS, conservando los modelos y componentes visuales.
