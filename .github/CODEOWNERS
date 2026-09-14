@@ -1,0 +1,5 @@
+# Propietario predeterminado de todo el repositorio
+* @stvdn
+
+# Protege también la definición de propietarios
+/.github/CODEOWNERS @stvdn
