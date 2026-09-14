@@ -4,6 +4,8 @@ Un portafolio estático para presentar proyectos, está construido con Next.js y
 
 Este repositorio funciona como ejemplo educativo: muestra cómo organizar una aplicación por funcionalidades (screaming architecture).
 
+Puedes ver el proyecto en funcionamiento en la [demo en vivo](https://tag-landingpage-seven.vercel.app/).
+
 ## Qué puedes aprender aquí
 
 - Cómo separar el contenido de los componentes visuales.
