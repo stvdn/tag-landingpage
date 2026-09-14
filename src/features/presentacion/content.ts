@@ -5,5 +5,4 @@ export const presentacion = {
   enfasis: "simplemente funcionan.",
   descripcion: "Diseñamos e instalamos sistemas de acceso con tags para que abrir una puerta sea rápido, claro y confiable.",
   demostracion: true,
-  especialidades: ["Tag", "Validación", "Apertura"],
 };

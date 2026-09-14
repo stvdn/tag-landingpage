@@ -4,11 +4,16 @@ import { contenidoProyectos, proyectos } from "../content";
 import type { Proyecto } from "../types";
 
 function ProyectoCard({ proyecto, index }: { proyecto: Proyecto; index: number }) {
-  return <article className="project" aria-labelledby={`proyecto-${proyecto.id}`}>
+  return <article className="project" aria-labelledby={`proyecto-${proyecto.id}`} data-reveal>
     <div className="project-media">
       {proyecto.fotografias.length > 0
         ? proyecto.fotografias.map((foto) => <figure key={foto.src}><Image src={foto.src} alt={foto.alt} width={foto.width} height={foto.height} sizes="(max-width: 1000px) 100vw, 54vw" />{foto.pie && <figcaption>{foto.pie}</figcaption>}</figure>)
-        : <div className="photo-placeholder" role="img" aria-label="Espacio reservado para fotografías del proyecto real"><span>01 / FOTO PRINCIPAL</span><strong>ANTES<br /><em>DESPUÉS</em></strong><small>Agrega aquí una foto real de la instalación</small></div>}
+        : <div className="photo-placeholder" role="img" aria-label="Representación visual del caso de demostración; pendiente de fotografías del proyecto real">
+          <div className="photo-topline"><span>CASO DE DEMOSTRACIÓN</span><span>01 / 01</span></div>
+          <div className="project-door" aria-hidden="true"><i /><i /><i /></div>
+          <strong>ANTES<br /><em>DESPUÉS</em></strong>
+          <small>Las fotografías reales de la instalación aparecerán aquí.</small>
+        </div>}
     </div>
     <div className="project-intro">
       <div className="project-meta"><span>PROYECTO {String(index + 1).padStart(2, "0")}</span>{proyecto.demostracion && <span className="demo-label">CASO DEMO</span>}</div>
