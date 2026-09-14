@@ -2,25 +2,29 @@ import { presentacion } from "../content";
 
 export function Presentacion() {
   return <>
-    {presentacion.demostracion && <div className="demo-banner">PORTAFOLIO DE DEMOSTRACIÓN <span>Contenido ilustrativo · No representa una instalación real</span></div>}
-    <header className="site-header container">
-      <a className="wordmark" href="#inicio" aria-label={`${presentacion.nombre}: inicio`}><span className="brand-symbol" aria-hidden="true">T</span>{presentacion.nombre}</a>
-      <nav aria-label="Navegación principal"><a href="#proyectos">El trabajo</a><a href="#contacto">Contacto <span aria-hidden="true">↗</span></a></nav>
+    <header className="site-header shell">
+      <a className="wordmark" href="#inicio" aria-label={`${presentacion.nombre}: inicio`}>
+        <span className="brand-symbol" aria-hidden="true"><i /><i /></span>{presentacion.nombre}
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#proyectos">Proyectos</a>
+        <a className="nav-contact" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+      </nav>
     </header>
-    <section className="hero container" id="inicio" aria-labelledby="hero-title">
+    <section className="hero shell" id="inicio" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <p className="eyebrow"><span className="short-line" />{presentacion.categoria}</p>
-        <h1 id="hero-title">{presentacion.titulo}<br /><span>{presentacion.enfasis}</span></h1>
+        <div className="hero-kicker"><p className="eyebrow">{presentacion.categoria}</p>{presentacion.demostracion && <span className="demo-chip">DEMO</span>}</div>
+        <h1 id="hero-title">{presentacion.titulo}<br /><em>{presentacion.enfasis}</em></h1>
         <p className="hero-description">{presentacion.descripcion}</p>
-        <a className="button" href="#proyectos">Explorar el proyecto <span aria-hidden="true">↗</span></a>
+        <a className="button" href="#proyectos">Ver cómo trabajamos <span aria-hidden="true">↓</span></a>
       </div>
-      <div className="access-diagram" role="img" aria-label="Esquema conceptual de acceso: presentar un tag, validar la credencial y permitir la apertura si está autorizada.">
-        <div className="diagram-top"><span>ESQUEMA DE ACCESO</span><span>01 — 03</span></div>
-        <div className="diagram-center"><span className="diagram-orbit orbit-one" /><span className="diagram-orbit orbit-two" /><span className="diagram-orbit orbit-three" /><span className="diagram-node">TAG<span>Identificación</span></span></div>
-        <div className="diagram-caption"><span>01 / PRESENTAR</span><p>El acceso comienza<br />con una credencial.</p></div>
-        <div className="diagram-steps"><span>01 Tag</span><span aria-hidden="true">→</span><span>02 Validación</span><span aria-hidden="true">→</span><span>03 Apertura</span></div>
+      <div className="hero-visual" role="img" aria-label="Espacio reservado para una fotografía real de un sistema de acceso instalado.">
+        <div className="placeholder-grid" aria-hidden="true" />
+        <span className="visual-index">01</span>
+        <div className="placeholder-copy"><span>FOTOGRAFÍA DEL PROYECTO</span><strong>Tu instalación<br />irá aquí.</strong><small>PLACEHOLDER · 4:5</small></div>
+        <div className="access-card" aria-hidden="true"><span className="signal">)))</span><b>ACCESO</b><small>LISTO PARA VALIDAR</small></div>
       </div>
     </section>
-    <div className="specialties container" aria-label="Temas del portafolio">{presentacion.especialidades.map((item, index) => <p key={item}><span>0{index + 1}</span>{item}</p>)}</div>
+    <div className="process-strip" aria-label="Proceso de acceso"><div className="shell">{presentacion.especialidades.map((item, index) => <p key={item}><span>0{index + 1}</span><b>{item}</b>{index < presentacion.especialidades.length - 1 && <i aria-hidden="true">→</i>}</p>)}</div></div>
   </>;
 }

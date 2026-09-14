@@ -14,6 +14,6 @@ export const proyectos = [
 ] satisfies ReadonlyArray<Proyecto>;
 
 export const contenidoProyectos = {
-  titulo: "Cada acceso tiene una historia.",
-  descripcion: "Una mirada al proceso y a las decisiones detrás de cada proyecto.",
+  titulo: "Del problema a la puerta abierta.",
+  descripcion: "Mostramos el proceso completo: qué encontramos, qué instalamos y cómo quedó funcionando.",
 };

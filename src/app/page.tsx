@@ -5,6 +5,6 @@ import { Contacto } from "@/features/contacto/components/Contacto";
 export default function Home() {
   return <>
     <main id="contenido"><Presentacion /><Proyectos /><Contacto /></main>
-    <footer className="container site-footer"><span>TAG / ACCESO</span><p>Sistemas de acceso para puertas</p><a href="#inicio">Volver al inicio ↑</a></footer>
+    <footer className="shell site-footer"><span>TAG/01</span><p>Sistemas de acceso para puertas</p><a href="#inicio">ARRIBA ↑</a></footer>
   </>;
 }

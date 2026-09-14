@@ -1,9 +1,9 @@
 export const presentacion = {
-  nombre: "TAG / ACCESO",
-  categoria: "SISTEMAS DE ACCESO PARA PUERTAS",
-  titulo: "Un pequeño tag.",
-  enfasis: "Una nueva forma de entrar.",
-  descripcion: "Un espacio para conocer el trabajo detrás de una instalación: la necesidad, la solución y cada detalle del acceso.",
+  nombre: "TAG/01",
+  categoria: "CONTROL DE ACCESO · PUERTAS",
+  titulo: "Accesos que",
+  enfasis: "simplemente funcionan.",
+  descripcion: "Diseñamos e instalamos sistemas de acceso con tags para que abrir una puerta sea rápido, claro y confiable.",
   demostracion: true,
-  especialidades: ["Identificación por tag", "Lectura de credenciales", "Acceso a puertas"],
+  especialidades: ["Tag", "Validación", "Apertura"],
 };
