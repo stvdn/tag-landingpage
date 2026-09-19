@@ -57,6 +57,8 @@ Sigue la guía [Personalizar el contenido](./docs/personalizar-contenido.md), qu
 
 ## Validar y compilar
 
+Ejecuta estas comprobaciones solo cuando se soliciten:
+
 ```sh
 npm run lint
 npm run typecheck
