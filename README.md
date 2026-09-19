@@ -12,7 +12,7 @@ Puedes ver el proyecto en funcionamiento en la [demo en vivo](https://tag-landin
 - Cómo organizar el código según las funcionalidades que ve el usuario.
 - Cómo modelar contenido con TypeScript y validar su forma con `satisfies`.
 
-Las pruebas automatizadas todavía no forman parte del ejemplo. Se añadirán como siguiente paso.
+El formulario de contacto incluye pruebas unitarias de la lógica de su acción de servidor.
 
 ## Tecnologías
 
@@ -62,6 +62,7 @@ Ejecuta estas comprobaciones solo cuando se soliciten:
 ```sh
 npm run lint
 npm run typecheck
+npm run test
 npm run build
 ```
 

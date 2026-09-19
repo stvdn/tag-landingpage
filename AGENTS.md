@@ -35,10 +35,11 @@ Run the following checks after a change:
 ```sh
 npm run lint
 npm run typecheck
+npm run test
 npm run build
 ```
 
-When automated tests are added, document their command here and keep feature-specific tests with the feature they verify.
+Keep feature-specific unit tests with the feature they verify.
 
 <!-- BEGIN:nextjs-agent-rules -->
 
